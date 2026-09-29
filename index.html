@@ -11,7 +11,12 @@
       <h1>OrbitWatch</h1>
     </header>
     <main id="dashboard">
-      <p>GEO Satellite Proximity Monitor</p>
+      <section id="satellite-search">
+        <h2>Satellite Search</h2>
+        <input type="text" id="search-input" placeholder="Search by satellite name or NORAD ID" />
+        <button id="search-btn">Search</button>
+        <ul id="search-results"></ul>
+      </section>
     </main>
     <script type="module" src="/src/js/main.mjs"></script>
   </body>
