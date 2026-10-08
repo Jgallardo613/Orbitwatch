@@ -17,7 +17,7 @@ function addToWatchlist(id, name) {
   const list = getWatchlist();
   // avoid duplicates
   if (list.find(item => item.id === id)) return;
-  list.push({ id, name });
+  list.push({ id, name, added: new Date().toISOString() });
   saveWatchlist(list);
   renderWatchlist();
 }
@@ -38,6 +38,7 @@ function renderWatchlist() {
   ul.innerHTML = list.map(item => `
     <li class="watchlist-item">
       <span class="watch-name">${item.name} (${item.id})</span>
+      <span class="watch-added">Added: ${new Date(item.added).toLocaleDateString()}</span>
       <button class="watch-track-btn" data-id="${item.id}">Track</button>
       <button class="watch-remove-btn" data-id="${item.id}">Remove</button>
     </li>
@@ -78,7 +79,6 @@ async function trackSatellite(noradId) {
       .bindPopup(`<b>${data.info.satname}</b><br>Alt: ${pos.sataltitude} km`)
       .openPopup();
     map.setView([pos.satlatitude, pos.satlongitude], 3);
-    // scroll to map
     document.getElementById('world-map').scrollIntoView({ behavior: 'smooth' });
   } else {
     results.innerHTML = `<li>No data found.</li>`;
@@ -112,7 +112,6 @@ function initSearch() {
         .openPopup();
       map.setView([pos.satlatitude, pos.satlongitude], 3);
 
-      // wire up add to watchlist button
       document.getElementById('add-watch-btn').addEventListener('click', () => {
         addToWatchlist(query, data.info.satname);
       });
