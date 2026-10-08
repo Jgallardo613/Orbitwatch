@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="OrbitWatch - Live GEO satellite tracking and space weather monitoring" />
     <title>OrbitWatch</title>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -25,6 +26,11 @@
         <input type="text" id="search-input" placeholder="e.g. 25544 for ISS" />
         <button id="search-btn">Search</button>
         <ul id="search-results"></ul>
+      </section>
+      <section id="watchlist">
+        <h2>Watchlist</h2>
+        <p class="section-desc">Saved satellites. Click a satellite to track it, or remove it from your list.</p>
+        <ul id="watchlist-items"><li class="empty-msg">No satellites saved yet.</li></ul>
       </section>
       <section id="world-map">
         <h2>Live Satellite Map</h2>
