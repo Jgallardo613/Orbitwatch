@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="OrbitWatch - Live GEO satellite tracking and space weather monitoring" />
+    <title>OrbitWatch</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" crossorigin src="/Orbitwatch/assets/index-Bi7Qp0Wg.js"></script>
+    <link rel="stylesheet" crossorigin href="/Orbitwatch/assets/index-CUaR6guZ.css">
+  </head>
+  <body>
+    <header>
+      <h1>OrbitWatch</h1>
+      <p class="subtitle">GEO Satellite Proximity Monitor</p>
+    </header>
+    <div class="status-bar">
+      <span>🛰️ Tracking: 35,430 Objects</span>
+      <span>🌍 Observer: Rexburg, ID</span>
+      <span>🕐 UTC: <span id="utc-clock"></span></span>
+    </div>
+    <main id="dashboard">
+      <section id="satellite-search">
+        <h2>Satellite Search</h2>
+        <p class="section-desc">Enter a NORAD ID to get live satellite position data.</p>
+        <input type="text" id="search-input" placeholder="e.g. 25544 for ISS" />
+        <button id="search-btn">Search</button>
+        <ul id="search-results"></ul>
+      </section>
+      <section id="watchlist">
+        <h2>Watchlist</h2>
+        <p class="section-desc">Saved satellites. Click a satellite to track it, or remove it from your list.</p>
+        <ul id="watchlist-items"><li class="empty-msg">No satellites saved yet.</li></ul>
+      </section>
+      <section id="world-map">
+        <h2>Live Satellite Map</h2>
+        <p class="section-desc">Real-time satellite position on the world map.</p>
+        <div id="map"></div>
+      </section>
+      <section id="space-weather">
+        <h2>Space Weather</h2>
+        <p class="section-desc">Live solar and geomagnetic activity data from NOAA.</p>
+        <div id="weather-data">Loading space weather...</div>
+      </section>
+      <section id="alert-feed">
+        <h2>Alert Feed</h2>
+        <p class="section-desc">Active proximity warnings and space weather alerts.</p>
+        <ul id="alert-list"><li>No active alerts.</li></ul>
+      </section>
+    </main>
+  </body>
+</html>
