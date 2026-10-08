@@ -1,4 +1,4 @@
-const API_KEY = import.meta.env.VITE_N2YO_API_KEY;
+const API_KEY = 'HE4J37-BEXPUH-JYRB3G-5UUW';
 const BASE_URL = 'https://corsproxy.io/?url=https://api.n2yo.com/rest/v1/satellite';
 
 export async function getSatellitePositions(noradId) {
